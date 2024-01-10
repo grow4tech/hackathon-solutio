@@ -5,7 +5,7 @@
   #hero .about-btn {
     position: relative;
     right: 39%;
-    top: 10px;
+    top: 20px;
   }
 
 .revealing-soon {
@@ -166,4 +166,103 @@
    
 
  
+  #schedule {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    overflow: hidden;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .section-header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .event-schedule {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .event {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .event:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  
+  .event:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+  
+  .event:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+  
+  .event h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .event h3:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #007bff;
+    border-radius: 2px;
+  }
+  
+  .event p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .event-time {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   

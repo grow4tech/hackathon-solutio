@@ -1,0 +1,163 @@
+#hero h1, #hero p, #hero .play-btn {
+    display: none; /* Hide by default */
+  }
+
+.revealing-soon {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.revealing-soon h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+.revealing-soon p {
+    font-size: 1.2em;
+    color: #666;
+}
+.animation-effect {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.reveal-section {
+    background-color: #ffffff; /* Light background for the whole section */
+    padding: 40px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  .reveal-section:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  }
+  
+  .reveal-section h2 {
+    font-weight: 600; /* Make the font bolder */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font family */
+    color: #333333;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .reveal-section h2::after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background-color: #d9534f; /* Use a color that matches your theme */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .reveal-section p {
+    color: #555555; /* Slightly darker font color for contrast */
+    font-size: 1em;
+    font-family: 'Helvetica Neue', sans-serif; /* Elegant font family */
+    animation: blinkingText 1.2s infinite;
+  }
+  
+  @keyframes blinkingText {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+
+  #hero {
+    width: 100%;
+    height: 100vh; /* Adjust height on mobile if necessary */
+    background: url('../img/Hero/solutio.gif') top center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 767px) {
+    #hero {
+      background: url('../img/Hero/solutio-mobile.gif') top center no-repeat; 
+      height: 50vh; /* You might want to adjust the height for mobile devices */
+      background-size: cover; /* cover will make sure the background covers the entire area */
+      background-position: center; /* Adjust if you need to focus on a particular part of the GIF */
+    }
+
+    #hero:before {
+        content: "";
+        background: rgba(6, 12, 34, 0.9);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      #hero h1, #hero p, #hero {
+        display: block; /* Show only on mobile */
+      }
+
+      #hero .about-btn {
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 12px 32px;
+        border-radius: 50px;
+        transition: 0.5s;
+        line-height: 1;
+        margin: 10px;
+        color: #fff;
+        animation-delay: 0.8s;
+        border: 2px solid #f82249;
+        position: relative;
+        right: 3%;
+        top: 20px;
+      }
+
+  }
+  
+  /* For tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #hero {
+      height: 75vh; /* Adjust the height for tablets if necessary */
+      background-size: cover; /* Ensures the background covers the area */
+      background-position: center; /* Center the background on tablets */
+    }
+  }
+  
+  /* Keep your existing styles for larger screens */
+  
+  
+  #hero:before {
+    content: "";
+    background: rgba(6, 12, 34, 0);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+   
+
+ 
+  

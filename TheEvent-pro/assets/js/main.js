@@ -230,3 +230,22 @@
   });
 
 })()
+
+// Add this code to your existing JavaScript file
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
+      }
+    });
+  });
+
+  // Track all sections that have an `id` applied
+  document.querySelectorAll('.roadmap-milestone').forEach((section) => {
+    observer.observe(section);
+  });
+});

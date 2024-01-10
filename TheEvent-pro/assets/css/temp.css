@@ -104,6 +104,7 @@
       height: 50vh; /* You might want to adjust the height for mobile devices */
       background-size: cover; /* cover will make sure the background covers the entire area */
       background-position: center; /* Adjust if you need to focus on a particular part of the GIF */
+      width: 100%;
     }
 
     #hero:before {
@@ -166,124 +167,155 @@
    
 
  
-/* Event Schedule Section */
-#schedule {
-    background-color: #f0f2f5;
+/* Roadmap Styles */
+.section-with-bg {
+    background: #f8f9fa;
     padding: 60px 0;
-    text-align: center;
   }
   
-  /* Section Header */
   .section-header h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #333;
-    font-weight: 700; /* Bold font */
+    margin-bottom: 30px;
+    font-weight: 600;
   }
   
-  /* Timeline */
-  .timeline {
+  .section-header p {
+    margin-bottom: 40px;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  .roadmap-container {
     position: relative;
-    padding: 0;
-    list-style: none;
   }
   
-  .timeline:before {
+  .roadmap {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .roadmap::before {
     content: '';
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
     bottom: 0;
-    left: 50%;
-    width: 4px;
-    margin-left: -2px;
-    background-color: #d6dadb;
+    width: 2px;
+    background: #007bff;
+    z-index: 0;
   }
   
-  .timeline-element {
+  .roadmap-milestone {
     position: relative;
-    width: 50%;
-    padding: 20px 40px;
-    margin-bottom: 10px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
-  .timeline-element:nth-child(odd) {
-    left: 0;
-  }
-  
-  .timeline-element:nth-child(even) {
-    left: 50%;
-  }
-  
-  .timeline-element:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 22px;
-    right: -15px; /* Adjust arrow position */
-    border-style: solid;
-    transform: rotate(45deg);
-    border-width: 15px 15px 0 0;
-    border-color: #007bff transparent transparent transparent;
-  }
-  
-  .timeline-element:nth-child(even):after {
-    left: -15px;
-    border-width: 15px 0 0 15px;
-    border-color: transparent transparent transparent #007bff;
-  }
-  
-  .timeline-element-content {
+  .milestone-details {
+    background: #fff;
     padding: 20px;
-    background-color: #007bff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
     position: relative;
-    border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin: 10px;
   }
   
-  .timeline-element-content h3 {
+  .milestone-icon {
+    display: inline-block;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    background: #007bff;
     color: #fff;
-    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .timeline-element-content p {
-    color: #d6dadb;
-    font-weight: bold;
+  .roadmap-milestone:nth-child(odd) .milestone-details {
+    margin-right: auto;
   }
   
-  /* Animation */
-  @keyframes moveInLeft {
-    0% {
+  .roadmap-milestone:nth-child(even) .milestone-details {
+    margin-left: auto;
+  }
+  
+  .roadmap-milestone h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .roadmap::before {
+      left: 32px;
+    }
+  
+    .milestone-icon {
+      margin: 0 0 20px 0;
+    }
+  
+    .roadmap-milestone .milestone-details {
+      text-align: left;
+      padding-left: 80px;
+    }
+  
+    .roadmap-milestone .milestone-details:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 30px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #007bff;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .roadmap-milestone .milestone-details {
+      padding-left: 60px;
+      width: calc(100% - 80px);
+    }
+  }
+  
+  /* Animation for roadmap elements */
+  @keyframes fadeIn {
+    from {
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateY(10px);
     }
-    80% {
-      transform: translateX(10px);
-    }
-    100% {
+    to {
       opacity: 1;
-      transform: translate(0);
+      transform: translateY(0);
     }
   }
   
-  @keyframes moveInRight {
-    0% {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-    80% {
-      transform: translateX(-10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0);
-    }
+  .roadmap-milestone {
+    animation: fadeIn 0.6s ease-out;
   }
   
-  .timeline-element:nth-child(odd) .timeline-element-content {
-    animation: moveInLeft 0.5s backwards;
+  /* Ensure the animation runs when the element is scrolled into view */
+  .roadmap-milestone:not(.in-view) {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: none;
   }
   
-  .timeline-element:nth-child(even) .timeline-element-content {
-    animation: moveInRight 0.5s backwards;
+  /* Add this class when the element is in the viewport */
+  .in-view {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.6s ease-out;
   }
-  
+      
